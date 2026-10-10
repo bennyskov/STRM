@@ -1,0 +1,23 @@
+# STRM — Python and secrets hygiene
+
+# Secrets — never commit
+config/KEYS.md
+credentials/
+*.secret
+*.token
+*.pem
+*.key
+
+# Python artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Editor/OS cruft
+.DS_Store
+.vscode/settings.json
+
+# Logs
+logs/
+*.log

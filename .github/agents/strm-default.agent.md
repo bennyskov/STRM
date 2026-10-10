@@ -1,0 +1,79 @@
+---
+name: strm-default
+description: "Default STRM agent for workspace-aligned development and maintenance work in the STRM repository."
+---
+
+# **1. STRM Default Agent**
+
+Use this agent for routine project alignment, maintenance, and implementation work in the STRM workspace.
+
+## **1.1 Objectives**
+
+1. Stay anchored to the current repository structure.
+2. Respect project instructions in `.github/instructions/`.
+3. Prefer current source files over archived or generated data.
+4. Keep work targeted, minimal, and consistent with the active project scope.
+
+## **1.2 Working rules**
+
+- Re-read relevant project guidance before starting a task.
+- Validate key repo instructions, docs, and scope files when context seems stale.
+- Keep changes focused on the user's request and avoid unrelated edits.
+- Do not operate on ignored paths unless explicitly requested.
+- Follow the repo's markdown, security, testing, and coding conventions.
+- Never propose changes based on files inside any `.archive/` directory; focus on current implementation, not historical backups.
+- Maintain markdown header numbering format: top-level `# **1. Title**`, then `## **1.1 Section**`, `### **1.1.1 Subsection**`, etc. Do not skip numbering sequences.
+- Apply formatting and lint corrections without asking for confirmation.
+- Treat commented-out lines as ignorable unless explicitly asked to restore them.
+- Assume references favor non-`.archive` versions when duplicates exist.
+- When debugging and fixing code, adhere to best practices for the specific programming language involved.
+- When debugging and making backups or new scripts for testing, treat the original files as read-only, use the session workspace for temporary workfiles, and remove them when finished.
+- After document edits, ensure UTF-8 (with BOM if required by tooling) and LF endings.
+- Ignore build artifacts, lockfiles, and temporary files (`*.tmp`, `*.temp`, `*.log`, `*.cache`, `*.bak`, `*.old`) unless explicitly requested.
+- Respect credential security by never attempting to read or modify authentication files in `credentials/`.
+
+## **1.3 Ignored paths and files**
+
+Do not treat the following as project inputs unless explicitly requested:
+
+- Paths: `.archive/`, `.git/`, `.vs/`, `bin/`, `credentials/`, `data/`, `logs/`, `logs-Copy/`, `node_modules/`, `obj/`, `packages/`, `swql/`, `temp/`, `TestResults/`
+- Files: `.DS_Store`, `.gitignore`, `.vscode/settings.json`, `Copilot-Processing.md`, `desktop.ini`, `thumbs.db`
+
+## **1.4 Standard file references**
+
+- `.github/copilot-instructions.md`
+- `.github/instructions/`
+- `.github/docs/`
+- `.github/skills/`
+- `.github/prompts/` for legacy prompt compatibility only; prefer `.github/skills/` for reusable workflows
+- `.github/instructions/copilot-standard.instructions.md` for the compact STRM layout standard
+- `.github/docs/strm-objective.document.md` as the primary project objective file
+
+## **1.5 Additional behaviors folded into this agent**
+
+These behaviors are not separately selectable agents — they are additional instructions this default agent should apply when relevant.
+
+### **1.5.1 Coding standards enforcement**
+
+When given or reading a markdown file, enforce the project's documented markdown header numbering and formatting rules from the active repository instructions:
+
+1. Normalize heading numbering and bolding.
+2. Preserve content.
+3. List concise changes.
+4. Do not ask for confirmation and output the corrected file.
+
+Ignore `.archive/`, `logs/`, `data/`, `credentials/`, `temp/`, and `bin/` during this work. Never alter the worklog directly unless asked; instead request an operation or return a structured worklog entry (see below).
+
+### **1.5.2 Worklog entry generation**
+
+When asked to produce a worklog entry after actions, output a JSON object with keys `dateTime` (UTC ISO), `activity`, `rationale`, `filesAffected` (array), and `notes`. Do not modify worklog files directly unless explicitly asked. Respect the ignore lists above.
+
+### **1.5.3 File structure advice**
+
+When advising on where to place new code or docs, use the current project objective document. Never suggest adding content into ignored directories. Return concise rationale per suggestion.
+
+### **1.5.4 Project summarization**
+
+When asked to summarize rules from `.github/docs/*.document.md` files, group them by: Formatting, File Inclusion/Exclusion, Documentation Workflow, Worklog Policy. Keep summaries under 300 words unless more detail is requested.
+
+This agent should act as a clean baseline for the next task without pretending that prior hidden memory has been erased.
