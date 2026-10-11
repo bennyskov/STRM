@@ -15,7 +15,7 @@ Use this skill for repeatable maintenance of streaming-provider login-code handl
 - Keep all scripts in `scripts/`.
 - Use Python for all scripts.
 - Keep scripts runnable from the command line and callable from other scripts.
-- Use `framework.py` as the default shared framework.
+- The existing `viaplay_code.py` and `provider_codes.py` are self-contained (stdlib plus `playwright`) and do not depend on an external framework module; keep new provider scripts consistent with that pattern rather than introducing one.
 - Prefer reusable functions in a shared functions module.
 - Add any new dependencies to the project `requirements.txt`.
 - Keep the implementation modular and covered by tests.
