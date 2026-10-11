@@ -2,7 +2,7 @@
 
 ## **1.1 What the standard is**
 
-The Copilot standard is the current HAP repo guidance that defines how Copilot should organize files, read instructions, and produce changes.
+The Copilot standard is the current STRM repo guidance that defines how Copilot should organize files, read instructions, and produce changes.
 
 Treat the repository as the source of truth. Do not rely on memory when the live files disagree.
 
@@ -10,14 +10,14 @@ Treat the repository as the source of truth. Do not rely on memory when the live
 
 Use these as the main standard references:
 
-- [copilot-instructions.md](/Users/bennyskov/Projects/HAP/.github/copilot-instructions.md)
-- [copilot-coding.instructions.md](/Users/bennyskov/Projects/HAP/.github/instructions/copilot-coding.instructions.md)
-- [copilot-markdown.instructions.md](/Users/bennyskov/Projects/HAP/.github/instructions/copilot-markdown.instructions.md)
-- [copilot-security.instructions.md](/Users/bennyskov/Projects/HAP/.github/instructions/copilot-security.instructions.md)
-- [copilot-testings.instructions.md](/Users/bennyskov/Projects/HAP/.github/instructions/copilot-testings.instructions.md)
-- [agents/](/Users/bennyskov/Projects/HAP/.github/agents)
-- [prompts/](/Users/bennyskov/Projects/HAP/.github/prompts) for legacy compatibility only; prefer skills for reusable workflows
-- [skills/](/Users/bennyskov/Projects/HAP/.github/skills)
+- [copilot-instructions.md](/Users/bennyskov/Projects/STRM/.github/copilot-instructions.md)
+- [copilot-coding.instructions.md](/Users/bennyskov/Projects/STRM/.github/instructions/copilot-coding.instructions.md)
+- [copilot-markdown.instructions.md](/Users/bennyskov/Projects/STRM/.github/instructions/copilot-markdown.instructions.md)
+- [copilot-security.instructions.md](/Users/bennyskov/Projects/STRM/.github/instructions/copilot-security.instructions.md)
+- [copilot-testings.instructions.md](/Users/bennyskov/Projects/STRM/.github/instructions/copilot-testings.instructions.md)
+- [agents/](/Users/bennyskov/Projects/STRM/.github/agents)
+- [prompts/](/Users/bennyskov/Projects/STRM/.github/prompts) for legacy compatibility only; prefer skills for reusable workflows
+- [skills/](/Users/bennyskov/Projects/STRM/.github/skills)
 
 ## **1.3 Essentials**
 
@@ -39,4 +39,4 @@ Use these as the main standard references:
 
 ## **1.5 Rule of thumb**
 
-If a file helps Copilot behave better in HAP, it should be small, current, and placed where the repo already expects that kind of guidance.
+If a file helps Copilot behave better in STRM, it should be small, current, and placed where the repo already expects that kind of guidance.
